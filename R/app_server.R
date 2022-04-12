@@ -5,5 +5,16 @@
 #' @import shiny
 #' @noRd
 app_server <- function(input, output, session) {
-  # Your application server logic
+    
+    output$network <- renderVisNetwork({
+      load("data/nodes.RData")
+      load("data/edges.RData")
+      
+      visNetwork(nodes, edges) %>%
+        visIgraphLayout() %>% 
+        visOptions(selectedBy = "group", 
+                   highlightNearest = TRUE, 
+                   nodesIdSelection = TRUE) %>%
+        visPhysics(stabilization = FALSE)
+    })
 }

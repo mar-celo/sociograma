@@ -3,14 +3,48 @@
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import shinydashboard
+#' @import visNetwork
+#' @import bs4Dash
 #' @noRd
 app_ui <- function(request) {
+  library(shinydashboard)
+  library(visNetwork)
+  library(bs4Dash)
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      h1("sociograma")
+    shinydashboard::dashboardPage(
+                                  shinydashboard::dashboardHeader(title = "Exemplo"),
+                                  shinydashboard::dashboardSidebar(
+                                    shinydashboard::sidebarMenu(
+                                      shinydashboard::menuItem("Informações gerais", tabName = "info")
+                                    )
+                                  ),
+                                  shinydashboard::dashboardBody(
+                                    dashboardthemes::shinyDashboardThemes(
+                                      theme = "grey_light"
+                                    ),
+                                    tabItems(
+                                      tabItem(
+                                        tabName = "info",
+                                        fluidRow(
+                                          column(
+                                            width = 12,
+                                            h1("Informações da Rede")
+                                          )
+                                        ),
+                                        # hr(style = "border-top: 1px solid black;"),
+                                        br(),
+                                        fluidRow(
+                                          visNetworkOutput("network",
+                                                           width = "100%",
+                                                           height = "800px")
+                                        )
+                                      )
+                                    )
+                                  )
     )
   )
 }
