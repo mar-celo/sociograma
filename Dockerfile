@@ -12,6 +12,7 @@ RUN Rscript -e 'remotes::install_version("visNetwork",upgrade="never", version =
 RUN Rscript -e 'remotes::install_version("shinydashboard",upgrade="never", version = "0.7.2")'
 RUN Rscript -e 'remotes::install_version("golem",upgrade="never", version = "0.3.2")'
 RUN Rscript -e 'remotes::install_version("DT",upgrade="never", version = "0.22")'
+RUN Rscript -e 'remotes::install_version("dashboardthemes",upgrade="never", version = "1.1.5")'
 RUN Rscript -e 'remotes::install_version("bs4Dash",upgrade="never", version = "2.0.3")'
 RUN mkdir /build_zone
 ADD . /build_zone
