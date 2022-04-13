@@ -7,9 +7,8 @@
 app_server <- function(input, output, session) {
     
     output$network <- renderVisNetwork({
-      load("../data/nodes.rda") # conexão com um banco
-
-      load("../data/edges.rda")
+      load("data/nodes.rda")  # conexão com um banco
+      load("data/edges.rda")
       
 
       visNetwork(nodes, edges) %>%
