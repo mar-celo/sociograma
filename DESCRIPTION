@@ -13,6 +13,7 @@ Imports:
     glue,
     golem (>= 0.3.2),
     htmltools,
+    igraph,
     magrittr,
     shiny (>= 1.7.1),
     shinydashboard,
