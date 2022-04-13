@@ -14,8 +14,6 @@ RUN Rscript -e 'remotes::install_version("golem",upgrade="never", version = "0.3
 RUN Rscript -e 'remotes::install_version("DT",upgrade="never", version = "0.22")'
 RUN Rscript -e 'remotes::install_version("dashboardthemes",upgrade="never", version = "1.1.5")'
 RUN Rscript -e 'remotes::install_version("bs4Dash",upgrade="never", version = "2.0.3")'
-RUN mkdir /data
-ADD /data/. /data
 RUN mkdir /build_zone
 ADD . /build_zone
 WORKDIR /build_zone
