@@ -10,7 +10,7 @@ app_server <- function(input, output, session) {
       
       
 
-      visNetwork(nodes, edges) %>%
+      visNetwork(sociograma::nodes, sociograma::edges) %>%
         visIgraphLayout() %>% 
         visOptions(selectedBy = "group", 
                    highlightNearest = TRUE, 
